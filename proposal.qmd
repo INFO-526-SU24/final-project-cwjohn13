@@ -1,11 +1,11 @@
 ---
-title: "Proposal title"
+title: "Analysis of environmental movements effectiveness"
 subtitle: "Proposal"
-author: 
-  - name: "Team Name"
+author:
+  - name: "Cole Johnson"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "This project will look into the recent increase in environmental movements and how they have changed the pollutants being removed from rivers and streams"
 format:
   html:
     code-tools: true
@@ -29,16 +29,20 @@ library(tidyverse)
 ```{r}
 #| label: load-dataset
 #| message: false
+trashwheel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')
+glimpse(trashwheel)
 ```
 
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
-Make sure to load the data and use inline code for some of this information.
+This data set is looking at different Trash Wheels (which are semi autonomous trash removal devices which are placed at the end of rivers or streams). The data set is comprised of data from 4 different trash wheels and displays the removal amounts of different items such as glass bottles or cigarette butts by date. The data set includes 16 columns and 993 rows, including data from 2014-2023.
+
+I chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic.
 
 ## Questions
 
-The two questions you want to answer.
+Has the recent popularity of environment protection movements had an impact on these trash wheels?
 
 ## Analysis plan
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+I plan to answer this question by looking how the main types of pollutants have changes over time. I will split the types of pollutants into recyclables and non-recyclables to determine if the trend has shifted from more non-recyclables to more recyclable as a result of environment protect movements. 
+I will also look into how each trash wheel's pollutants have changed over time to see if different locations are effected differently by environment protection movements. 
