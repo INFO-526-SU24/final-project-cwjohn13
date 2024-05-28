@@ -5,7 +5,7 @@ author:
   - name: "Cole Johnson"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "This project will look into the recent increase in environmental movements and how they have changed the pollutants being removed from rivers and streams"
+description: "This project will look into the effectiveness of the recent increase in environmental movements and how they have changed the pollutants being removed from rivers and streams"
 format:
   html:
     code-tools: true
