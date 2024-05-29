@@ -38,7 +38,7 @@ This data set is looking at different Trash Wheels (which are semi autonomous tr
 
 I chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic.
 
-## Questions
+## Question
 
 Has the recent popularity of environment protection movements had an impact on these trash wheels?
 
