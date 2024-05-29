@@ -2,30 +2,30 @@
   {
     "objectID": "proposal.html",
     "href": "proposal.html",
-    "title": "Proposal title",
+    "title": "Analysis of environmental movements effectiveness",
     "section": "",
     "text": "library(tidyverse)"
   },
   {
     "objectID": "proposal.html#dataset",
     "href": "proposal.html#dataset",
-    "title": "Proposal title",
+    "title": "Analysis of environmental movements effectiveness",
     "section": "Dataset",
-    "text": "Dataset\nA brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.\nMake sure to load the data and use inline code for some of this information."
+    "text": "Dataset\n\ntrashwheel &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')\nglimpse(trashwheel)\n\nRows: 993\nColumns: 16\n$ ID             &lt;chr&gt; \"mister\", \"mister\", \"mister\", \"mister\", \"mister\", \"mist…\n$ Name           &lt;chr&gt; \"Mister Trash Wheel\", \"Mister Trash Wheel\", \"Mister Tra…\n$ Dumpster       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n$ Month          &lt;chr&gt; \"May\", \"May\", \"May\", \"May\", \"May\", \"May\", \"May\", \"May\",…\n$ Year           &lt;dbl&gt; 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2…\n$ Date           &lt;chr&gt; \"5/16/2014\", \"5/16/2014\", \"5/16/2014\", \"5/17/2014\", \"5/…\n$ Weight         &lt;dbl&gt; 4.31, 2.74, 3.45, 3.10, 4.06, 2.71, 1.91, 3.70, 2.52, 3…\n$ Volume         &lt;dbl&gt; 18, 13, 15, 15, 18, 13, 8, 16, 14, 18, 15, 19, 15, 15, …\n$ PlasticBottles &lt;dbl&gt; 1450, 1120, 2450, 2380, 980, 1430, 910, 3580, 2400, 134…\n$ Polystyrene    &lt;dbl&gt; 1820, 1030, 3100, 2730, 870, 2140, 1090, 4310, 2790, 17…\n$ CigaretteButts &lt;dbl&gt; 126000, 91000, 105000, 100000, 120000, 90000, 56000, 11…\n$ GlassBottles   &lt;dbl&gt; 72, 42, 50, 52, 72, 46, 32, 58, 49, 75, 38, 45, 58, 62,…\n$ PlasticBags    &lt;dbl&gt; 584, 496, 1080, 896, 368, 672, 416, 1552, 984, 448, 344…\n$ Wrappers       &lt;dbl&gt; 1162, 874, 2032, 1971, 753, 1144, 692, 3015, 1988, 1066…\n$ SportsBalls    &lt;dbl&gt; 7, 5, 6, 6, 7, 5, 3, 6, 6, 7, 6, 8, 6, 6, 6, 6, 5, 6, 6…\n$ HomesPowered   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…\n\n\nThis data set is looking at different Trash Wheels (which are semi autonomous trash removal devices which are placed at the end of rivers or streams). The data set is comprised of data from 4 different trash wheels and displays the removal amounts of different items such as glass bottles or cigarette butts by date. The data set includes 16 columns and 993 rows, including data from 2014-2023.\nI chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic."
   },
   {
     "objectID": "proposal.html#questions",
     "href": "proposal.html#questions",
-    "title": "Proposal title",
+    "title": "Analysis of environmental movements effectiveness",
     "section": "Questions",
-    "text": "Questions\nThe two questions you want to answer."
+    "text": "Questions\nHas the recent popularity of environment protection movements had an impact on these trash wheels?"
   },
   {
     "objectID": "proposal.html#analysis-plan",
     "href": "proposal.html#analysis-plan",
-    "title": "Proposal title",
+    "title": "Analysis of environmental movements effectiveness",
     "section": "Analysis plan",
-    "text": "Analysis plan\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any)."
+    "text": "Analysis plan\nI plan to answer this question by looking how the main types of pollutants have changes over time. I will split the types of pollutants into recyclables and non-recyclables to determine if the trend has shifted from more non-recyclables to more recyclable as a result of environment protect movements. I will also look into how each trash wheel’s pollutants have changed over time to see if different locations are effected differently by environment protection movements."
   },
   {
     "objectID": "index.html",
