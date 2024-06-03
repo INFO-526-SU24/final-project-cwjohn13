@@ -33,7 +33,6 @@ trashwheel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience
 glimpse(trashwheel)
 ```
 
-
 This data set is looking at different Trash Wheels (which are semi autonomous trash removal devices which are placed at the end of rivers or streams). The data set is comprised of data from 4 different trash wheels and displays the removal amounts of different items such as glass bottles or cigarette butts by date. The data set includes 16 columns and 993 rows, including data from 2014-2023.
 
 I chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic.
@@ -59,13 +58,12 @@ Movements <- tibble(date = c("2014-10-31", "2015-12-12", "2018-07-01", "2019-04-
 
 ```
 
-
 My first visualization will be a line graph of quantity of pollutants that trash wheels removed from rivers over the time period of 2014-2023. The quantity line graph will be split into each different type of pollutant removed (plastic bottles, polystyrene, etc.), these will be faded out in the background. The graph will also include 2 lines for recyclables and non-recyclables that will be highlighted, these will be cumulative quantities of recyclables and non-recyclables. The graph will have annotations showing when each major environmental movement 'breakthrough' occurred. This will show the effect quantity wise of these movements as well as if the movements shift pollutants from non-recyclables to more recyclables.
 
 My second visualization will be a grouped bar chart grouping by recyclables versus non-recyclables. This bar chart will split the environmental movement's breakthroughs up on the x-axis. For example, one of the ticks on the x-axis will be 'IPCC Fifth Assessment Report' which will include all data from the date 2014-10-31 through 2015-12-12. This will help us see which breakthrough, if any, had a large impact on quantities of pollutants removed from rivers.
 
-
 ## Plan of Attack
+
 ```{r}
 POA <- tibble(Task_Name = c("Peer Review Proposal", "Teaching Team Review", "Begin working on Write-Up", "Begin working on presentation", "Write-Up and presentation due"), Status = c("Completed", "in-progress", " ", " ", " "), Assignee = c("Cole", "Cole", "Cole", "Cole", "Cole"), Due = c("May 29th", "June 3rd,", "June 6th", "June 13th", "June 24th"), Priority = c("High", "High", "Low", "Low", "High"), Summary = c("Finish proposal and do peer review of 2 others", "Update proposal based on peer review for teaching team", "Start completing Write-Up and analysis", "Start Putting together Presentation", "Complete Project"))
 
