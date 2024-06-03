@@ -40,9 +40,35 @@ I chose this data set because it provides a decade worth of information about sa
 
 ## Question
 
-Has the recent popularity of environment protection movements had an impact on these trash wheels?
+Has the recent popularity of environment protection movements had an impact on trash wheels?
 
 ## Analysis plan
 
-I plan to answer this question by looking how the main types of pollutants have changes over time. I will split the types of pollutants into recyclables and non-recyclables to determine if the trend has shifted from more non-recyclables to more recyclable as a result of environment protect movements. 
-I will also look into how each trash wheel's pollutants have changed over time to see if different locations are effected differently by environment protection movements. 
+```{r}
+# Create data set based on list of sources for important environmental movement dates
+
+Movements <- tibble(date = c("2014-10-31", "2015-12-12", "2018-07-01", "2019-04-01","2021-01-01","2021-08-09"), description = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden rejoins Paris Accord", "IPCC 6th Report"))
+
+#Sources:
+#https://www.ipcc.ch/site/assets/uploads/2018/04/ipcc_ar5_leaflet.pdf
+#https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XXVII-7-d&chapter=27&clang=_en
+#https://www.euronews.com/green/2023/09/10/fridays-for-future-gretas-school-strikes-led-a-third-of-swiss-citizens-to-change-their-hab
+#https://www.nationalcleanupday.org/earth-day
+#https://apnews.com/article/joe-biden-executive-orders-b5b409da08e42414b9a12e2c67ee2df6
+#https://www.ipcc.ch/assessment-report/ar6/
+
+```
+
+
+My first visualization will be a line graph of quantity of pollutants that trash wheels removed from rivers over the time period of 2014-2023. The quantity line graph will be split into each different type of pollutant removed (plastic bottles, polystyrene, etc.), these will be faded out in the background. The graph will also include 2 lines for recyclables and non-recyclables that will be highlighted, these will be cumulative quantities of recyclables and non-recyclables. The graph will have annotations showing when each major environmental movement 'breakthrough' occurred. This will show the effect quantity wise of these movements as well as if the movements shift pollutants from non-recyclables to more recyclables.
+
+My second visualization will be a grouped bar chart grouping by recyclables versus non-recyclables. This bar chart will split the environmental movement's breakthroughs up on the x-axis. For example, one of the ticks on the x-axis will be 'IPCC Fifth Assessment Report' which will include all data from the date 2014-10-31 through 2015-12-12. This will help us see which breakthrough, if any, had a large impact on quantities of pollutants removed from rivers.
+
+
+## Plan of Attack
+```{r}
+POA <- tibble(Task_Name = c("Peer Review Proposal", "Teaching Team Review", "Begin working on Write-Up", "Begin working on presentation", "Write-Up and presentation due"), Status = c("Completed", "in-progress", " ", " ", " "), Assignee = c("Cole", "Cole", "Cole", "Cole", "Cole"), Due = c("May 29th", "June 3rd,", "June 6th", "June 13th", "June 24th"), Priority = c("High", "High", "Low", "Low", "High"), Summary = c("Finish proposal and do peer review of 2 others", "Update proposal based on peer review for teaching team", "Start completing Write-Up and analysis", "Start Putting together Presentation", "Complete Project"))
+
+POA
+
+```
