@@ -1,11 +1,11 @@
 ---
-title: "Project Title"
+title: "Analysis of environmental movements effectiveness"
 subtitle: "INFO 526 - Summer 2024 - Final Project"
 author: 
-  - name: "Team name"
+  - name: "Cole Johnson"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "This project will look into the effectiveness of the recent increase in environmental movements and how they have changed the pollutants being removed from rivers and streams"
 format:
    html:
     code-tools: true
