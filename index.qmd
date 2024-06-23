@@ -240,7 +240,33 @@ trashwheel5 <- trashwheel4 |>
   ungroup() |>
   mutate(QuantityPerYear = TotalQuantity/as.numeric(YearsEncompassed))
 
+trashwheel6 <- trashwheel5 |>
+  group_by(movement) |>
+  mutate(sum = sum(QuantityPerYear)) |>
+  ungroup() |>
+  mutate(Percentage = QuantityPerYear/sum) |>
+  mutate(Percentage = round(Percentage, 2))
 
+trashwheel6 |>
+  ggplot(aes(x = movement, y = Percentage, fill = MaterialType)) +
+  geom_bar(position = "fill", stat = "identity", color ='black', width = 0.9) +
+  geom_text(aes(label = paste0(Percentage*100, "%")),
+            position = position_stack(vjust = 0.5), size = 2) +
+  scale_x_discrete(guide = guide_axis(n.dodge = 3),
+                   limits = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden Rejoins Paris Accord", "IPCC Sixth Assessment Report")) +
+  theme(axis.text.x = element_text(size = 10),
+        plot.subtitle = element_text(size =  10)
+        ) +
+  labs(
+    title = "Percentage of recyclables versus nonrecyclables",
+    subtitle = "Grouped by most recent environmental movement",
+    caption = "sources: tidyverse, various other sources",
+    y = NULL,
+    x = "Environmenal Movements"
+  )
+
+
+#learned n.dodge from https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2
 
 ```
 
