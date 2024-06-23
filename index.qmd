@@ -161,7 +161,8 @@ p2 <- p +
   theme(
     plot.subtitle = element_text(size =  10)
   ) +   
-  gghighlight(MaterialType == 'Recyclable')
+  gghighlight(MaterialType == 'Recyclable') +
+  guides(color = guide_legend(title = "Pollutant Type"))
 
 p3 <- p +
   labs(
@@ -175,7 +176,8 @@ p3 <- p +
   theme(
     plot.subtitle = element_text(size =  10)
   ) +   
-  gghighlight(MaterialType == 'NonRecyclable')
+  gghighlight(MaterialType == 'NonRecyclable') +
+  guides(color = guide_legend(title = "Pollutant Type"))
  
 p1
 p2
@@ -255,21 +257,23 @@ trashwheel6 |>
   scale_x_discrete(guide = guide_axis(n.dodge = 3),
                    limits = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden Rejoins Paris Accord", "IPCC Sixth Assessment Report")) +
   theme(axis.text.x = element_text(size = 10),
-        plot.subtitle = element_text(size =  10)
+        plot.subtitle = element_text(size =  10),
+        plot.title = element_text(size =  12)
         ) +
   labs(
-    title = "Percentage of recyclables versus nonrecyclables",
-    subtitle = "Grouped by most recent environmental movement",
-    caption = "sources: tidyverse, various other sources",
+    title = "Percentage of Recyclables Versus Nonrecyclables During Environmental Movements",
+    subtitle = "Grouped by most recent environmental movement\nOrdered by Movement Date",
+    caption = "Sources: Tidyverse, various other sources",
     y = NULL,
     x = "Environmenal Movements"
-  )
+  ) +
+  guides(fill = guide_legend(title = "Pollutant Type"))
 
 
 #learned n.dodge from https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2
 
 ```
-
+This visualization shows percentage of recyclable and non-recyclable pollutants in rivers following each environmental movement's occurrence. The visualization shows a direct comparison between recyclables and non-recyclable pollutants with percentage values of each which makes each environmental movements effect on types of pollutants very apparent. Although we see the same trend that was present in the prior visualization, the amount of non recyclables being greatly reduced over time, we also see something that wasn't very apparent in the last visualization. This visualization shows us that following the First National Cleanup Day, the percentage of non-recyclable pollutants actually increased in comparison to recyclable pollutants.
 
 
 ### Discussion
