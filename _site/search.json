@@ -124,5 +124,75 @@
     "title": "Analysis of environmental movements effectiveness",
     "section": "Plan of Attack",
     "text": "Plan of Attack\n\nPOA &lt;- tibble(Task_Name = c(\"Peer Review Proposal\", \"Teaching Team Review\", \"Begin working on Write-Up\", \"Begin working on presentation\", \"Write-Up and presentation due\"), Status = c(\"Completed\", \"in-progress\", \" \", \" \", \" \"), Assignee = c(\"Cole\", \"Cole\", \"Cole\", \"Cole\", \"Cole\"), Due = c(\"May 29th\", \"June 3rd,\", \"June 6th\", \"June 13th\", \"June 24th\"), Priority = c(\"High\", \"High\", \"Low\", \"Low\", \"High\"), Summary = c(\"Finish proposal and do peer review of 2 others\", \"Update proposal based on peer review for teaching team\", \"Start completing Write-Up and analysis\", \"Start Putting together Presentation\", \"Complete Project\"))\n\nPOA\n\n# A tibble: 5 × 6\n  Task_Name                     Status        Assignee Due      Priority Summary\n  &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  \n1 Peer Review Proposal          \"Completed\"   Cole     May 29th High     Finish…\n2 Teaching Team Review          \"in-progress\" Cole     June 3r… High     Update…\n3 Begin working on Write-Up     \" \"           Cole     June 6th Low      Start …\n4 Begin working on presentation \" \"           Cole     June 13… Low      Start …\n5 Write-Up and presentation due \" \"           Cole     June 24… High     Comple…"
+  },
+  {
+    "objectID": "presentation.html#introduction",
+    "href": "presentation.html#introduction",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Introduction",
+    "text": "Introduction\nThe dataset that is being investigated presents information regarding the amount of pollutants removed from rivers by trashwheels, which are devices located at the end of rivers which remove trash. Alongside this dataset, I included data regarding when the most prominent environmental movements took place over the last decade. By analysing visualizations made from these two datasets we will clearly see the effectiveness that environmental movements have on reducing pollutants and transfering pollutants from non recyclables to recyclables."
+  },
+  {
+    "objectID": "presentation.html#question-1-how-are-environmental-movements-affecting-the-trash-wheels-collections-located-that-the-end-of-rivers",
+    "href": "presentation.html#question-1-how-are-environmental-movements-affecting-the-trash-wheels-collections-located-that-the-end-of-rivers",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?",
+    "text": "Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?"
+  },
+  {
+    "objectID": "presentation.html#motivation-for-question-1",
+    "href": "presentation.html#motivation-for-question-1",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Motivation for Question 1:",
+    "text": "Motivation for Question 1:\n-Through analysis of trends created by differing quantities of pollutants being removed by trash wheels alongside the timing of environmental movements, we will be able to determine if environmental movements actually benefit the quantities or types of pollutants being put into rivers."
+  },
+  {
+    "objectID": "presentation.html#general-quantity-of-pollutants-removed-by-trash-wheels-from-rivers",
+    "href": "presentation.html#general-quantity-of-pollutants-removed-by-trash-wheels-from-rivers",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "General Quantity of Pollutants Removed by Trash Wheels from Rivers",
+    "text": "General Quantity of Pollutants Removed by Trash Wheels from Rivers"
+  },
+  {
+    "objectID": "presentation.html#quantity-of-recyclables-and-non-recyclables-removed-from-rivers-by-trashwheels",
+    "href": "presentation.html#quantity-of-recyclables-and-non-recyclables-removed-from-rivers-by-trashwheels",
+    "title": "Analysis of environmental movements effectiveness",
+    "section": "Quantity of Recyclables and Non-Recyclables Removed From Rivers by TrashWheels",
+    "text": "Quantity of Recyclables and Non-Recyclables Removed From Rivers by TrashWheels"
+  },
+  {
+    "objectID": "presentation.html#environmental-movements-impact-on-recyclables-versus-non-recyclables",
+    "href": "presentation.html#environmental-movements-impact-on-recyclables-versus-non-recyclables",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Environmental Movement’s Impact on Recyclables versus Non-Recyclables",
+    "text": "Environmental Movement’s Impact on Recyclables versus Non-Recyclables"
+  },
+  {
+    "objectID": "presentation.html#insites-gained-from-the-visualizations",
+    "href": "presentation.html#insites-gained-from-the-visualizations",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Insites Gained From the Visualizations",
+    "text": "Insites Gained From the Visualizations\n-Steady Trend of pollutants moving from recyclables to non-recyclables. -Environmental Movements are at least helping create more recyclables. -Greta Thunberg’s school strike movement helped lower quantities of pollutants in rivers -First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables."
+  },
+  {
+    "objectID": "presentation.html#quantity-of-recyclables-removed-from-rivers-by-trashwheels",
+    "href": "presentation.html#quantity-of-recyclables-removed-from-rivers-by-trashwheels",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Quantity of Recyclables Removed From Rivers by TrashWheels",
+    "text": "Quantity of Recyclables Removed From Rivers by TrashWheels"
+  },
+  {
+    "objectID": "presentation.html#quantity-of-non-recyclables-removed-from-rivers-by-trashwheels",
+    "href": "presentation.html#quantity-of-non-recyclables-removed-from-rivers-by-trashwheels",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Quantity of Non-Recyclables Removed From Rivers by TrashWheels",
+    "text": "Quantity of Non-Recyclables Removed From Rivers by TrashWheels"
+  },
+  {
+    "objectID": "presentation.html#insights-gained-from-the-visualizations",
+    "href": "presentation.html#insights-gained-from-the-visualizations",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Insights Gained From the Visualizations",
+    "text": "Insights Gained From the Visualizations\n-Steady Trend of pollutants moving from recyclables to non-recyclables.\n-Environmental Movements are at least helping create more recyclables.\n-Greta Thunberg’s school strike movement helped lower quantities of pollutants in rivers\n-First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables."
   }
 ]

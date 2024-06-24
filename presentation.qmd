@@ -1,5 +1,5 @@
 ---
-title: "Analysis of environmental movements effectiveness"
+title: "Analysis of Environmental Movement's Effectiveness"
 subtitle: "INFO 526 - Summer 2024 - Final Project"
 author: "Cole Johnson"
 title-slide-attributes:
@@ -212,12 +212,14 @@ p1
   
 ```
 
-## Quantity of Recyclables and Non-Recyclables Removed From Rivers by TrashWheels
+## Quantity of Recyclables Removed From Rivers by TrashWheels
 ```{r}
 p2
+```
+## Quantity of Non-Recyclables Removed From Rivers by TrashWheels
+```{r}
 p3
 ```
-
 
 ## Environmental Movement's Impact on Recyclables versus Non-Recyclables
 
@@ -302,9 +304,12 @@ trashwheel6 |>
 ```
 
 
-## Insites Gained From the Visualizations
+## Insights Gained From the Visualizations
 
 -Steady Trend of pollutants moving from recyclables to non-recyclables.
+
   -Environmental Movements are at least helping create more recyclables.
+  
 -Greta Thunberg's school strike movement helped lower quantities of pollutants in rivers
+
 -First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables.
