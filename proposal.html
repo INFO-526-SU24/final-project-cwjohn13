@@ -4755,8 +4755,9 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a></li>
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
+  <li><a href="#plan-of-attack" id="toc-plan-of-attack" class="nav-link" data-scroll-target="#plan-of-attack">Plan of Attack</a></li>
   </ul>
 </nav>
     </div>
@@ -4833,13 +4834,45 @@ $ HomesPowered   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 <p>This data set is looking at different Trash Wheels (which are semi autonomous trash removal devices which are placed at the end of rivers or streams). The data set is comprised of data from 4 different trash wheels and displays the removal amounts of different items such as glass bottles or cigarette butts by date. The data set includes 16 columns and 993 rows, including data from 2014-2023.</p>
 <p>I chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic.</p>
 </section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<p>Has the recent popularity of environment protection movements had an impact on these trash wheels?</p>
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">Question</h2>
+<p>Has the recent popularity of environment protection movements had an impact on trash wheels?</p>
 </section>
 <section id="analysis-plan" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
-<p>I plan to answer this question by looking how the main types of pollutants have changes over time. I will split the types of pollutants into recyclables and non-recyclables to determine if the trend has shifted from more non-recyclables to more recyclable as a result of environment protect movements. I will also look into how each trash wheel’s pollutants have changed over time to see if different locations are effected differently by environment protection movements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Create data set based on list of sources for important environmental movement dates</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>Movements <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">date =</span> <span class="fu">c</span>(<span class="st">&quot;2014-10-31&quot;</span>, <span class="st">&quot;2015-12-12&quot;</span>, <span class="st">&quot;2018-07-01&quot;</span>, <span class="st">&quot;2019-04-01&quot;</span>,<span class="st">&quot;2021-01-01&quot;</span>,<span class="st">&quot;2021-08-09&quot;</span>), <span class="at">description =</span> <span class="fu">c</span>(<span class="st">&quot;IPCC Fifth Assessment Report&quot;</span>, <span class="st">&quot;Paris Agreement Signed&quot;</span>, <span class="st">&quot;Greta Thunberg starts school stike for climate&quot;</span>, <span class="st">&quot;First National CleanUp Day&quot;</span>, <span class="st">&quot;Biden rejoins Paris Accord&quot;</span>, <span class="st">&quot;IPCC 6th Report&quot;</span>))</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#Sources:</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#https://www.ipcc.ch/site/assets/uploads/2018/04/ipcc_ar5_leaflet.pdf</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&amp;mtdsg_no=XXVII-7-d&amp;chapter=27&amp;clang=_en</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#https://www.euronews.com/green/2023/09/10/fridays-for-future-gretas-school-strikes-led-a-third-of-swiss-citizens-to-change-their-hab</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#https://www.nationalcleanupday.org/earth-day</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#https://apnews.com/article/joe-biden-executive-orders-b5b409da08e42414b9a12e2c67ee2df6</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#https://www.ipcc.ch/assessment-report/ar6/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>My first visualization will be a line graph of quantity of pollutants that trash wheels removed from rivers over the time period of 2014-2023. The quantity line graph will be split into each different type of pollutant removed (plastic bottles, polystyrene, etc.), these will be faded out in the background. The graph will also include 2 lines for recyclables and non-recyclables that will be highlighted, these will be cumulative quantities of recyclables and non-recyclables. The graph will have annotations showing when each major environmental movement ‘breakthrough’ occurred. This will show the effect quantity wise of these movements as well as if the movements shift pollutants from non-recyclables to more recyclables.</p>
+<p>My second visualization will be a grouped bar chart grouping by recyclables versus non-recyclables. This bar chart will split the environmental movement’s breakthroughs up on the x-axis. For example, one of the ticks on the x-axis will be ‘IPCC Fifth Assessment Report’ which will include all data from the date 2014-10-31 through 2015-12-12. This will help us see which breakthrough, if any, had a large impact on quantities of pollutants removed from rivers.</p>
+</section>
+<section id="plan-of-attack" class="level2">
+<h2 class="anchored" data-anchor-id="plan-of-attack">Plan of Attack</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>POA <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Task_Name =</span> <span class="fu">c</span>(<span class="st">&quot;Peer Review Proposal&quot;</span>, <span class="st">&quot;Teaching Team Review&quot;</span>, <span class="st">&quot;Begin working on Write-Up&quot;</span>, <span class="st">&quot;Begin working on presentation&quot;</span>, <span class="st">&quot;Write-Up and presentation due&quot;</span>), <span class="at">Status =</span> <span class="fu">c</span>(<span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>), <span class="at">Assignee =</span> <span class="fu">c</span>(<span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>), <span class="at">Due =</span> <span class="fu">c</span>(<span class="st">&quot;May 29th&quot;</span>, <span class="st">&quot;June 3rd,&quot;</span>, <span class="st">&quot;June 6th&quot;</span>, <span class="st">&quot;June 13th&quot;</span>, <span class="st">&quot;June 24th&quot;</span>), <span class="at">Priority =</span> <span class="fu">c</span>(<span class="st">&quot;High&quot;</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;High&quot;</span>), <span class="at">Summary =</span> <span class="fu">c</span>(<span class="st">&quot;Finish proposal and do peer review of 2 others&quot;</span>, <span class="st">&quot;Update proposal based on peer review for teaching team&quot;</span>, <span class="st">&quot;Start completing Write-Up and analysis&quot;</span>, <span class="st">&quot;Start Putting together Presentation&quot;</span>, <span class="st">&quot;Complete Project&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>POA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 6
+  Task_Name                     Status    Assignee Due       Priority Summary   
+  &lt;chr&gt;                         &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;     
+1 Peer Review Proposal          Completed Cole     May 29th  High     Finish pr…
+2 Teaching Team Review          Completed Cole     June 3rd, High     Update pr…
+3 Begin working on Write-Up     Completed Cole     June 6th  Low      Start com…
+4 Begin working on presentation Completed Cole     June 13th Low      Start Put…
+5 Write-Up and presentation due Completed Cole     June 24th High     Complete …</code></pre>
+</div>
+</div>
 
 
 <!-- -->
@@ -5490,54 +5523,78 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> &quot;Analysis of environmental movements effectiveness&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="an">author:</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">  - name: &quot;Cole Johnson&quot;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">    affiliations:</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">      - name: &quot;School of Information, University of Arizona&quot;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="an">description:</span><span class="co"> &quot;This project will look into the effectiveness of the recent increase in environmental movements and how they have changed the pollutants being removed from rivers and streams&quot;</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="an">format:</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">  html:</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">    code-tools: true</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">    code-line-numbers: true</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="an">execute:</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">  warning: false</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co">---</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="in">```{r}</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="co">#| label: load-pkgs</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#| message: false</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="in">```</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="fu">## Dataset</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="in">```{r}</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="co">#| label: load-dataset</span></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="co">#| message: false</span></span>
-<span id="cb4-36"><a href="#cb4-36"></a>trashwheel <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv&#39;</span>)</span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="fu">glimpse</span>(trashwheel)</span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="in">```</span></span>
-<span id="cb4-39"><a href="#cb4-39"></a></span>
-<span id="cb4-40"><a href="#cb4-40"></a></span>
-<span id="cb4-41"><a href="#cb4-41"></a>This data set is looking at different Trash Wheels (which are semi autonomous trash removal devices which are placed at the end of rivers or streams). The data set is comprised of data from 4 different trash wheels and displays the removal amounts of different items such as glass bottles or cigarette butts by date. The data set includes 16 columns and 993 rows, including data from 2014-2023.</span>
-<span id="cb4-42"><a href="#cb4-42"></a></span>
-<span id="cb4-43"><a href="#cb4-43"></a>I chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic.</span>
-<span id="cb4-44"><a href="#cb4-44"></a></span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="fu">## Questions</span></span>
-<span id="cb4-46"><a href="#cb4-46"></a></span>
-<span id="cb4-47"><a href="#cb4-47"></a>Has the recent popularity of environment protection movements had an impact on these trash wheels?</span>
-<span id="cb4-48"><a href="#cb4-48"></a></span>
-<span id="cb4-49"><a href="#cb4-49"></a><span class="fu">## Analysis plan</span></span>
-<span id="cb4-50"><a href="#cb4-50"></a></span>
-<span id="cb4-51"><a href="#cb4-51"></a>I plan to answer this question by looking how the main types of pollutants have changes over time. I will split the types of pollutants into recyclables and non-recyclables to determine if the trend has shifted from more non-recyclables to more recyclable as a result of environment protect movements. </span>
-<span id="cb4-52"><a href="#cb4-52"></a>I will also look into how each trash wheel&#39;s pollutants have changed over time to see if different locations are effected differently by environment protection movements. </span>
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> &quot;Analysis of environmental movements effectiveness&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="an">author:</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">  - name: &quot;Cole Johnson&quot;</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">    affiliations:</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">      - name: &quot;School of Information, University of Arizona&quot;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="an">description:</span><span class="co"> &quot;This project will look into the effectiveness of the recent increase in environmental movements and how they have changed the pollutants being removed from rivers and streams&quot;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="an">format:</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">  html:</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">    code-line-numbers: true</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="an">execute:</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">  warning: false</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">---</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="in">```{r}</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="co">#| label: load-pkgs</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co">#| message: false</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="in">```</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a></span>
+<span id="cb7-29"><a href="#cb7-29"></a><span class="fu">## Dataset</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a></span>
+<span id="cb7-33"><a href="#cb7-33"></a><span class="in">```{r}</span></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="co">#| label: load-dataset</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a><span class="co">#| message: false</span></span>
+<span id="cb7-36"><a href="#cb7-36"></a>trashwheel <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv&#39;</span>)</span>
+<span id="cb7-37"><a href="#cb7-37"></a><span class="fu">glimpse</span>(trashwheel)</span>
+<span id="cb7-38"><a href="#cb7-38"></a><span class="in">```</span></span>
+<span id="cb7-39"><a href="#cb7-39"></a></span>
+<span id="cb7-40"><a href="#cb7-40"></a>This data set is looking at different Trash Wheels (which are semi autonomous trash removal devices which are placed at the end of rivers or streams). The data set is comprised of data from 4 different trash wheels and displays the removal amounts of different items such as glass bottles or cigarette butts by date. The data set includes 16 columns and 993 rows, including data from 2014-2023.</span>
+<span id="cb7-41"><a href="#cb7-41"></a></span>
+<span id="cb7-42"><a href="#cb7-42"></a>I chose this data set because it provides a decade worth of information about saving the environment, a topic that is extremely relevant in recent years. It also provides a large amount of specific data that can be mutated into more broad topics that will provide general data about the topic.</span>
+<span id="cb7-43"><a href="#cb7-43"></a></span>
+<span id="cb7-44"><a href="#cb7-44"></a><span class="fu">## Question</span></span>
+<span id="cb7-45"><a href="#cb7-45"></a></span>
+<span id="cb7-46"><a href="#cb7-46"></a>Has the recent popularity of environment protection movements had an impact on trash wheels?</span>
+<span id="cb7-47"><a href="#cb7-47"></a></span>
+<span id="cb7-48"><a href="#cb7-48"></a><span class="fu">## Analysis plan</span></span>
+<span id="cb7-49"><a href="#cb7-49"></a></span>
+<span id="cb7-52"><a href="#cb7-52"></a><span class="in">```{r}</span></span>
+<span id="cb7-53"><a href="#cb7-53"></a><span class="co"># Create data set based on list of sources for important environmental movement dates</span></span>
+<span id="cb7-54"><a href="#cb7-54"></a></span>
+<span id="cb7-55"><a href="#cb7-55"></a>Movements <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">date =</span> <span class="fu">c</span>(<span class="st">&quot;2014-10-31&quot;</span>, <span class="st">&quot;2015-12-12&quot;</span>, <span class="st">&quot;2018-07-01&quot;</span>, <span class="st">&quot;2019-04-01&quot;</span>,<span class="st">&quot;2021-01-01&quot;</span>,<span class="st">&quot;2021-08-09&quot;</span>), <span class="at">description =</span> <span class="fu">c</span>(<span class="st">&quot;IPCC Fifth Assessment Report&quot;</span>, <span class="st">&quot;Paris Agreement Signed&quot;</span>, <span class="st">&quot;Greta Thunberg starts school stike for climate&quot;</span>, <span class="st">&quot;First National CleanUp Day&quot;</span>, <span class="st">&quot;Biden rejoins Paris Accord&quot;</span>, <span class="st">&quot;IPCC 6th Report&quot;</span>))</span>
+<span id="cb7-56"><a href="#cb7-56"></a></span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="co">#Sources:</span></span>
+<span id="cb7-58"><a href="#cb7-58"></a><span class="co">#https://www.ipcc.ch/site/assets/uploads/2018/04/ipcc_ar5_leaflet.pdf</span></span>
+<span id="cb7-59"><a href="#cb7-59"></a><span class="co">#https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&amp;mtdsg_no=XXVII-7-d&amp;chapter=27&amp;clang=_en</span></span>
+<span id="cb7-60"><a href="#cb7-60"></a><span class="co">#https://www.euronews.com/green/2023/09/10/fridays-for-future-gretas-school-strikes-led-a-third-of-swiss-citizens-to-change-their-hab</span></span>
+<span id="cb7-61"><a href="#cb7-61"></a><span class="co">#https://www.nationalcleanupday.org/earth-day</span></span>
+<span id="cb7-62"><a href="#cb7-62"></a><span class="co">#https://apnews.com/article/joe-biden-executive-orders-b5b409da08e42414b9a12e2c67ee2df6</span></span>
+<span id="cb7-63"><a href="#cb7-63"></a><span class="co">#https://www.ipcc.ch/assessment-report/ar6/</span></span>
+<span id="cb7-64"><a href="#cb7-64"></a></span>
+<span id="cb7-65"><a href="#cb7-65"></a><span class="in">```</span></span>
+<span id="cb7-66"><a href="#cb7-66"></a></span>
+<span id="cb7-67"><a href="#cb7-67"></a>My first visualization will be a line graph of quantity of pollutants that trash wheels removed from rivers over the time period of 2014-2023. The quantity line graph will be split into each different type of pollutant removed (plastic bottles, polystyrene, etc.), these will be faded out in the background. The graph will also include 2 lines for recyclables and non-recyclables that will be highlighted, these will be cumulative quantities of recyclables and non-recyclables. The graph will have annotations showing when each major environmental movement &#39;breakthrough&#39; occurred. This will show the effect quantity wise of these movements as well as if the movements shift pollutants from non-recyclables to more recyclables.</span>
+<span id="cb7-68"><a href="#cb7-68"></a></span>
+<span id="cb7-69"><a href="#cb7-69"></a>My second visualization will be a grouped bar chart grouping by recyclables versus non-recyclables. This bar chart will split the environmental movement&#39;s breakthroughs up on the x-axis. For example, one of the ticks on the x-axis will be &#39;IPCC Fifth Assessment Report&#39; which will include all data from the date 2014-10-31 through 2015-12-12. This will help us see which breakthrough, if any, had a large impact on quantities of pollutants removed from rivers.</span>
+<span id="cb7-70"><a href="#cb7-70"></a></span>
+<span id="cb7-71"><a href="#cb7-71"></a><span class="fu">## Plan of Attack</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a></span>
+<span id="cb7-75"><a href="#cb7-75"></a><span class="in">```{r}</span></span>
+<span id="cb7-76"><a href="#cb7-76"></a>POA <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Task_Name =</span> <span class="fu">c</span>(<span class="st">&quot;Peer Review Proposal&quot;</span>, <span class="st">&quot;Teaching Team Review&quot;</span>, <span class="st">&quot;Begin working on Write-Up&quot;</span>, <span class="st">&quot;Begin working on presentation&quot;</span>, <span class="st">&quot;Write-Up and presentation due&quot;</span>), <span class="at">Status =</span> <span class="fu">c</span>(<span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>, <span class="st">&quot;Completed&quot;</span>), <span class="at">Assignee =</span> <span class="fu">c</span>(<span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>, <span class="st">&quot;Cole&quot;</span>), <span class="at">Due =</span> <span class="fu">c</span>(<span class="st">&quot;May 29th&quot;</span>, <span class="st">&quot;June 3rd,&quot;</span>, <span class="st">&quot;June 6th&quot;</span>, <span class="st">&quot;June 13th&quot;</span>, <span class="st">&quot;June 24th&quot;</span>), <span class="at">Priority =</span> <span class="fu">c</span>(<span class="st">&quot;High&quot;</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;Low&quot;</span>, <span class="st">&quot;High&quot;</span>), <span class="at">Summary =</span> <span class="fu">c</span>(<span class="st">&quot;Finish proposal and do peer review of 2 others&quot;</span>, <span class="st">&quot;Update proposal based on peer review for teaching team&quot;</span>, <span class="st">&quot;Start completing Write-Up and analysis&quot;</span>, <span class="st">&quot;Start Putting together Presentation&quot;</span>, <span class="st">&quot;Complete Project&quot;</span>))</span>
+<span id="cb7-77"><a href="#cb7-77"></a></span>
+<span id="cb7-78"><a href="#cb7-78"></a>POA</span>
+<span id="cb7-79"><a href="#cb7-79"></a></span>
+<span id="cb7-80"><a href="#cb7-80"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
