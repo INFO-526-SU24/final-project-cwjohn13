@@ -193,7 +193,7 @@
     "href": "presentation.html#insights-gained-from-the-visualizations",
     "title": "Analysis of Environmental Movement’s Effectiveness",
     "section": "Insights Gained From the Visualizations",
-    "text": "Insights Gained From the Visualizations\n-Steady Trend of pollutants moving from recyclables to non-recyclables.\n-Environmental Movements are at least helping create more recyclables.\n-Greta Thunberg’s school strike movement helped lower quantities of pollutants in rivers\n-First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables."
+    "text": "Insights Gained From the Visualizations\n-Steady Trend of pollutants moving from non-recyclables to recyclables.\n-Environmental Movements are at least helping create more recyclables.\n-Greta Thunberg’s school strike movement helped lower quantities of pollutants in rivers\n-First National Clean Up Day seemed to actually negatively affect the ratio of recyclables versus non-recyclables."
   },
   {
     "objectID": "index.html#introduction",
@@ -214,13 +214,27 @@
     "href": "presentation.html#introduction-to-the-topic-and-motivation",
     "title": "Analysis of Environmental Movement’s Effectiveness",
     "section": "Introduction to the Topic and Motivation",
-    "text": "Introduction to the Topic and Motivation\n-I will be looking at how environmental movements effect river pollutants.\n-With the increasing news surrounding big environmental movements I thought it would be interesting to see if any of these movements are effective in reducing or changing the type of pollutants that are being found in rivers."
+    "text": "Introduction to the Topic and Motivation\n-how environmental movements effect river pollutants.\n-Based on pollutant removal by trash wheels\n-With the increasing news surrounding big environmental movements I thought it would be interesting to see if any of these movements have been effective at reducing or changing the type of pollutants that are being found in rivers."
   },
   {
     "objectID": "presentation.html#introduction-to-the-data",
     "href": "presentation.html#introduction-to-the-data",
     "title": "Analysis of Environmental Movement’s Effectiveness",
     "section": "Introduction to the Data",
-    "text": "Introduction to the Data\n-The data set being investigated is the trashwheel data set from tidyverse which presents information regarding the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers.\n-I supplemented this with data regarding when the most prominent environmental movements took place over the last decade."
+    "text": "Introduction to the Data\n-trashwheel data set from tidyverse\n-the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers\n-data regarding when the most prominent environmental movements took place over the last decade"
+  },
+  {
+    "objectID": "presentation.html#question-1-how-are-environmental-movements-affecting-the-trash-wheels-pollutant-collections-at-the-end-of-rivers",
+    "href": "presentation.html#question-1-how-are-environmental-movements-affecting-the-trash-wheels-pollutant-collections-at-the-end-of-rivers",
+    "title": "Analysis of Environmental Movement’s Effectiveness",
+    "section": "Question 1: How are environmental movements affecting the Trash Wheel’s pollutant collections at the end of rivers?",
+    "text": "Question 1: How are environmental movements affecting the Trash Wheel’s pollutant collections at the end of rivers?\n-Pollutants being removed by trash wheels\n-Timing of environmental movements"
+  },
+  {
+    "objectID": "index.html#question-1-how-are-environmental-movements-affecting-the-trash-wheels-pollutant-collections-at-the-end-of-rivers",
+    "href": "index.html#question-1-how-are-environmental-movements-affecting-the-trash-wheels-pollutant-collections-at-the-end-of-rivers",
+    "title": "Analysis of environmental movements affectiveness",
+    "section": "Question 1: How are environmental movements affecting the Trash Wheel’s pollutant collections at the end of rivers?",
+    "text": "Question 1: How are environmental movements affecting the Trash Wheel’s pollutant collections at the end of rivers?\n\nIntroduction\nFor this question I want to know the effects that environmental movements have on the pollutants that are being thrown into rivers where trash wheels are located. I would like to know if the amount of pollutants are decreasing and if the type of pollutants (recyclable versus non recyclable) are changing as a result of big environmental movements. I am interested in looking at this data because I have heard a ton of news over the last few years about environmental movements being more and more important and effective. I would like to know if all of these events actually change anything in peoples mind about pollutants or recyclables.\n\n\nApproach\nFor the first visualization, I will be using a geom smooth line plot to tell if there is a trend of overall pollutants or non-recyclable pollutants. A decreasing trend of either overall pollutants or non-recyclable pollutants would mean that the environmental movements are successful at benefiting the environment. On this plot I will have vertical lines labeled by environmental movement dates, from this we can see if any one of the environmental movements had a large impact on types or quantities of pollutants being removed from rivers.\nFor the second visualization, I will be using a stacked bar chart grouped by most recent environmental movement on the x-axis and ordered by environmental movement date. This bar chart will only be looking at recyclable versus non-recyclable pollutants and will show if there is a clear trend of pollutants becoming more recyclable as well as which movements have more of an impact on that trend.\n\n\nAnalysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThese visualizations shows pollutant quantities being pulled from the end of rivers by Trash Wheels overtime. The visualization also shows the dates in which major environmental movements began or had a change. From the visualization we can see the non-recyclable quantity decrease fairly steadily over the entire period looked at. This visualization also tells us that certain items such as plastic bottles saw no change in quantities polluted into rivers over this period. Although this visualization shows the trend of quantities of pollutant types over time, I would like to see more in=depth of how each movement effected the quantities of recyclables and non-recyclables.\n\n\n\n\n\n\n\n\n\nThis visualization shows percentage of recyclable and non-recyclable pollutants in rivers following each environmental movement’s occurrence. The visualization shows a direct comparison between recyclables and non-recyclable pollutants with percentage values of each which makes each environmental movements effect on types of pollutants very apparent. Although we see the same trend that was present in the prior visualization, the amount of non recyclables being greatly reduced over time, we also see something that wasn’t very apparent in the last visualization. This visualization shows us that following the First National Cleanup Day, the percentage of non-recyclable pollutants actually increased in comparison to recyclable pollutants.\n\n\nDiscussion\nTalk about results here, what you gained from the graph"
   }
 ]

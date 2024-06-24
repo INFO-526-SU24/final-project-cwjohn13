@@ -89,19 +89,25 @@ data("penguins")
 
 ## Introduction to the Topic and Motivation
 
--I will be looking at how environmental movements effect river pollutants.
+-how environmental movements effect river pollutants.
+  
+    -Based on pollutant removal by trash wheels
 
--With the increasing news surrounding big environmental movements I thought it would be interesting to see if any of these movements are effective in reducing or changing the type of pollutants that are being found in rivers.
+-With the increasing news surrounding big environmental movements I thought it would be interesting to see if any of these movements have been effective at reducing or changing the type of pollutants that are being found in rivers.
 
 ## Introduction to the Data
 
--The data set being investigated is the trashwheel data set from tidyverse which presents information regarding the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers. 
+-trashwheel data set from tidyverse 
 
--I supplemented this with data regarding when the most prominent environmental movements took place over the last decade.
+    -the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers
 
-## Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?
+-data regarding when the most prominent environmental movements took place over the last decade
 
--Through analysis of quantities of pollutants being removed by trash wheels alongside the timing of environmental movements, we will be able to determine if environmental movements actually benefit the quantities or types of pollutants being put into rivers.
+## Question 1: How are environmental movements affecting the Trash Wheel's pollutant collections at the end of rivers?
+
+-Pollutants being removed by trash wheels
+
+-Timing of environmental movements
 
 ## General Quantity of Pollutants Removed by Trash Wheels from Rivers
 
@@ -158,7 +164,7 @@ p <- trashwheel3 |>
            y = 4000,
            label = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden rejoins Paris Accord", "IPCC Sixth Assessment Report"),
            angle = 90,
-           size = 3.5
+           size = 3
            ) 
 
 p1 <- p +
@@ -296,7 +302,7 @@ trashwheel6 |>
         plot.title = element_text(size =  12)
         ) +
   labs(
-    title = "Percentage of Recyclables Versus Nonrecyclables During Environmental Movements",
+    title = "Percentage of Pollutants During Environmental Movements",
     subtitle = "Grouped by most recent environmental movement\nOrdered by Movement Date",
     caption = "Sources: Tidyverse, various other sources",
     y = NULL,
@@ -312,11 +318,11 @@ trashwheel6 |>
 
 ## Insights Gained From the Visualizations
 
--Steady Trend of pollutants moving from recyclables to non-recyclables.
+-Steady Trend of pollutants moving from non-recyclables to recyclables.
 
   -Environmental Movements are at least helping create more recyclables.
   
 -Greta Thunberg's school strike movement helped lower quantities of pollutants in rivers
 
--First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables.
+-First National Clean Up Day seemed to actually negatively affect the ratio of recyclables versus non-recyclables.
 

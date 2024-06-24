@@ -23,7 +23,7 @@ One of the big worries of my generation has been global warming and other enviro
 
 The data set that I will use to investigate this information is the trashwheel data set from tidyverse, which presents information regarding the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers. This data set includes quantities of specific items that are being removed from rivers, such as plastic bottles. I will mutate this data to create quantities of recyclables and non-recyclables. I supplemented this with data regarding when the most prominent environmental movements took place over the last decade. By analyzing visualizations made from these two data sets we will clearly see the effectiveness that environmental movements have on river pollutants. 
 
-## Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?
+## Question 1: How are environmental movements affecting the Trash Wheel's pollutant collections at the end of rivers?
 
 ### Introduction
 For this question I want to know the effects that environmental movements have on the pollutants that are being thrown into rivers where trash wheels are located. I would like to know if the amount of pollutants are decreasing and if the type of pollutants (recyclable versus non recyclable) are changing as a result of big environmental movements. I am interested in looking at this data because I have heard a ton of news over the last few years about environmental movements being more and more important and effective. I would like to know if all of these events actually change anything in peoples mind about pollutants or recyclables. 
