@@ -20,9 +20,44 @@ execute:
 #| label: load-packages
 #| include: false
 
-# Load packages here
-pacman::p_load(tidymodels,
-               tidyverse)
+if (!require("pacman")) 
+  install.packages("pacman")
+
+# install packages
+pacman::p_load(tidyverse,
+               glue,
+               scales,
+               ggthemes,
+               viridis,
+               openintro,
+               patchwork,
+               dsbox,
+               ggridges,
+               dplyr,
+               fs,
+               janitor,
+               broom,
+               colorspace,
+               here,
+               palmerpenguins,
+               jpeg,
+               ggpubr,
+               tigris,
+               sf,
+               mapproj,
+               geofacet,
+               glue,
+               ggrepel,
+               ggspatial,
+               rnaturalearth,
+               rnaturalearthdata,
+               readxl,
+               patchwork,
+               shiny,
+               gghighlight
+               ) 
+#theme set
+theme_set(theme_minimal(base_size = 14))
 
 ```
 
