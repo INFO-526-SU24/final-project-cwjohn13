@@ -17,13 +17,11 @@ execute:
   echo: false
 ---
 
-## Abstract
-
-Add project abstract here.
-
 ## Introduction
 
-Add project introduction here. Talk about the dataset
+One of the big worries of my generation has been global warming and other environmental issues, causing many news articles to be made regarding environmental issues. With this increasing news surrounding big environmental movements I thought it would be interesting to see if any of these movements are effective in reducing or changing the type of pollutants that are being found in rivers.
+
+The data set that I will use to investigate this information is the trashwheel data set from tidyverse, which presents information regarding the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers. This data set includes quantities of specific items that are being removed from rivers, such as plastic bottles. I will mutate this data to create quantities of recyclables and non-recyclables. I supplemented this with data regarding when the most prominent environmental movements took place over the last decade. By analyzing visualizations made from these two data sets we will clearly see the effectiveness that environmental movements have on river pollutants. 
 
 ## Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?
 
@@ -33,7 +31,9 @@ For this question I want to know the effects that environmental movements have o
 
 ### Approach
 
-I first cleaned the dataset, making sure there were no blank data values that could change the analysis.
+For the first visualization, I will be using a geom smooth line plot to tell if there is a trend of overall pollutants or non-recyclable pollutants. A decreasing trend of either overall pollutants or non-recyclable pollutants would mean that the environmental movements are successful at benefiting the environment. On this plot I will have vertical lines labeled by environmental movement dates, from this we can see if any one of the environmental movements had a large impact on types or quantities of pollutants being removed from rivers.
+
+For the second visualization, I will be using a stacked bar chart grouped by most recent environmental movement on the x-axis and ordered by environmental movement date. This bar chart will only be looking at recyclable versus non-recyclable pollutants and will show if there is a clear trend of pollutants becoming more recyclable as well as which movements have more of an impact on that trend.
 
 ### Analysis
 
@@ -166,7 +166,7 @@ p2 <- p +
 
 p3 <- p +
   labs(
-    title = "Quantity of Recyclable Pollutants Removed from all Trash Rivers",
+    title = "Quantity of Non-Recyclable Pollutants Removed from all Trash Rivers",
     subtitle = "CigaretteButts quantity adjusted 100:1",
     caption = "Verticle lines represent major environmental movements
     Sources:tidyverse, various other sources",
@@ -192,7 +192,7 @@ p3
 #https://www.ipcc.ch/assessment-report/ar6/
   
 ```
-This visualization shows pollutant quantities being pulled from the end of rivers by Trash Wheels overtime. The visualization also shows the dates in which major environmental movements began or had a change. From the visualization we can see the non-recyclable quantity decrease fairly steadily over the entire period looked at. This visualization also tells us that certain items such as plastic bottles saw no change in quantities polluted into rivers over this period. Although this visualization shows the trend of quantities of pollutant types over time, I would like to see more in=depth of how each movement effected the quantities of recyclables and non-recyclables.
+These visualizations shows pollutant quantities being pulled from the end of rivers by Trash Wheels overtime. The visualization also shows the dates in which major environmental movements began or had a change. From the visualization we can see the non-recyclable quantity decrease fairly steadily over the entire period looked at. This visualization also tells us that certain items such as plastic bottles saw no change in quantities polluted into rivers over this period. Although this visualization shows the trend of quantities of pollutant types over time, I would like to see more in=depth of how each movement effected the quantities of recyclables and non-recyclables.
 
 ``` {r}
 #manipulate data
@@ -256,7 +256,7 @@ trashwheel6 |>
             position = position_stack(vjust = 0.5), size = 2) +
   scale_x_discrete(guide = guide_axis(n.dodge = 3),
                    limits = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden Rejoins Paris Accord", "IPCC Sixth Assessment Report")) +
-  theme(axis.text.x = element_text(size = 10),
+  theme(axis.text.x = element_text(size = 8),
         plot.subtitle = element_text(size =  10),
         plot.title = element_text(size =  12)
         ) +

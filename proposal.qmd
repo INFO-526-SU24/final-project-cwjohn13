@@ -65,7 +65,7 @@ My second visualization will be a grouped bar chart grouping by recyclables vers
 ## Plan of Attack
 
 ```{r}
-POA <- tibble(Task_Name = c("Peer Review Proposal", "Teaching Team Review", "Begin working on Write-Up", "Begin working on presentation", "Write-Up and presentation due"), Status = c("Completed", "in-progress", " ", " ", " "), Assignee = c("Cole", "Cole", "Cole", "Cole", "Cole"), Due = c("May 29th", "June 3rd,", "June 6th", "June 13th", "June 24th"), Priority = c("High", "High", "Low", "Low", "High"), Summary = c("Finish proposal and do peer review of 2 others", "Update proposal based on peer review for teaching team", "Start completing Write-Up and analysis", "Start Putting together Presentation", "Complete Project"))
+POA <- tibble(Task_Name = c("Peer Review Proposal", "Teaching Team Review", "Begin working on Write-Up", "Begin working on presentation", "Write-Up and presentation due"), Status = c("Completed", "Completed", "Completed", "Completed", "Completed"), Assignee = c("Cole", "Cole", "Cole", "Cole", "Cole"), Due = c("May 29th", "June 3rd,", "June 6th", "June 13th", "June 24th"), Priority = c("High", "High", "Low", "Low", "High"), Summary = c("Finish proposal and do peer review of 2 others", "Update proposal based on peer review for teaching team", "Start completing Write-Up and analysis", "Start Putting together Presentation", "Complete Project"))
 
 POA
 

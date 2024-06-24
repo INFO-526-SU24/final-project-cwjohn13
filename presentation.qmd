@@ -87,15 +87,21 @@ mtcars$speed <- mtcars$hp / mtcars$wt
 data("penguins")
 ```
 
-## Introduction
+## Introduction to the Topic and Motivation
 
-The dataset that is being investigated presents information regarding the amount of pollutants removed from rivers by trashwheels, which are devices located at the end of rivers which remove trash. Alongside this dataset, I included data regarding when the most prominent environmental movements took place over the last decade. By analysing visualizations made from these two datasets we will clearly see the effectiveness that environmental movements have on reducing pollutants and transfering pollutants from non recyclables to recyclables.
+-I will be looking at how environmental movements effect river pollutants.
+
+-With the increasing news surrounding big environmental movements I thought it would be interesting to see if any of these movements are effective in reducing or changing the type of pollutants that are being found in rivers.
+
+## Introduction to the Data
+
+-The data set being investigated is the trashwheel data set from tidyverse which presents information regarding the amount of pollutants removed from rivers by trashwheels, Trash removal devices located at the end of rivers. 
+
+-I supplemented this with data regarding when the most prominent environmental movements took place over the last decade.
 
 ## Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?
 
-## Motivation for Question 1:
-
--Through analysis of trends created by differing quantities of pollutants being removed by trash wheels alongside the timing of environmental movements, we will be able to determine if environmental movements actually benefit the quantities or types of pollutants being put into rivers.
+-Through analysis of quantities of pollutants being removed by trash wheels alongside the timing of environmental movements, we will be able to determine if environmental movements actually benefit the quantities or types of pollutants being put into rivers.
 
 ## General Quantity of Pollutants Removed by Trash Wheels from Rivers
 
@@ -313,3 +319,4 @@ trashwheel6 |>
 -Greta Thunberg's school strike movement helped lower quantities of pollutants in rivers
 
 -First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables.
+
