@@ -52,114 +52,224 @@ mtcars$speed <- mtcars$hp / mtcars$wt
 data("penguins")
 ```
 
-# Using Quarto for presentations
+## Introduction
 
-## Quarto
+The dataset that is being investigated presents information regarding the amount of pollutants removed from rivers by trashwheels, which are devices located at the end of rivers which remove trash. Alongside this dataset, I included data regarding when the most prominent environmental movements took place over the last decade. By analysing visualizations made from these two datasets we will clearly see the effectiveness that environmental movements have on reducing pollutants and transfering pollutants from non recyclables to recyclables.
 
--   The presentation is created using the Quarto CLI
+## Question 1: How are environmental movements affecting the Trash Wheels collections located that the end of rivers?
 
--   `##` sets the start of a new slide
+## Motivation for Question 1:
 
-## Layouts
+-Through analysis of trends created by differing quantities of pollutants being removed by trash wheels alongside the timing of environmental movements, we will be able to determine if environmental movements actually benefit the quantities or types of pollutants being put into rivers.
 
-You can use plain text
-
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
-:::
-
-::: {.column width="60%"}
-or in two columns
-:::
-:::
-
-[^1]: And add footnotes
-
--   like
-
--   this
-
-## Code
-
-```{r, echo=FALSE}
-model <- lm(mpg ~ speed, data = mtcars) 
-
-model |> tidy()
-
-model |> glance()
-
-```
-
-## Plots
+## General Quantity of Pollutants Removed by Trash Wheels from Rivers
 
 ```{r}
-penguins |>
-  mutate(species = ifelse(species == "Adelie", "Adelie", "Other")) |>
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point()
+
+trashwheel <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-03-05/trashwheel.csv')
+
+Movements <- tibble(date = c("2014-10-31", "2015-12-12", "2018-04-01", "2019-04-01","2021-01-01","2021-08-09"), description = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden rejoins Paris Accord", "IPCC Sixth Assessment Report"))
+
+#fix dates
+
+trashwheel <- trashwheel |>
+  filter(!is.na(Name)) |>
+  mutate(Date = paste0(str_split(Date, '\\/')[[1]][1],
+                          '/',
+                          str_split(Date, '\\/')[[1]][2]
+                          )
+         ) |>
+  mutate(Date = paste(Date, Year, sep = '/')) |>
+  mutate(Date = as.Date(Date, format = "%m/%d/%Y"))
+
+Movements <- Movements |>
+  mutate(date = as.Date(date)) |>
+  mutate(datenew = date + 1)
+
+#add recycle/nonrecycleqDate#add recycle/nonrecycleqDate#add recycle/nonrecyclequantity Cigarettebutts/100 because they are much smaller in size than everything else
+trashwheel2 <- trashwheel |>
+  mutate(Recyclable = PlasticBottles + GlassBottles + PlasticBags + Wrappers) |>
+  mutate(NonRecyclable = Polystyrene + CigaretteButts/100 + SportsBalls) |>
+  mutate(CigaretteButts = CigaretteButts/100)
+
+
+#pivot_longer to make the data graphable
+trashwheel3 <- trashwheel2 |>
+  pivot_longer(
+    cols = c("PlasticBottles", "Polystyrene", "CigaretteButts", "GlassBottles", "PlasticBags", "Wrappers", "SportsBalls", "Recyclable", "NonRecyclable"),
+    names_to = "MaterialType",
+    values_to = "Quantity"
+  )
+
+
+#Create Plot 1 - line graph with environmental movements annotated
+
+p <- trashwheel3 |>
+  ggplot() +
+  geom_smooth(se = FALSE, aes(x = as.Date(Date), y = Quantity, color = MaterialType)) +
+  geom_vline(data = Movements, 
+             xintercept = as.Date(c("2014-10-31", "2015-12-12", "2018-04-01", "2019-04-01","2021-01-01","2021-08-09")),
+             color = "black",
+             size = 1
+             ) +
+  annotate("text", 
+           x = as.Date(c("2014-7-31", "2015-9-12", "2018-1-01", "2019-1-01","2020-10-01","2021-05-09")),
+           y = 4000,
+           label = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden rejoins Paris Accord", "IPCC Sixth Assessment Report"),
+           angle = 90,
+           size = 3.5
+           ) 
+
+p1 <- p +
+  labs(
+    title = "Quantity of Pollutants Removed from all Trash Rivers",
+    subtitle = "CigaretteButts quantity adjusted 100:1",
+    caption = "Verticle lines represent major environmental movements
+    Sources:tidyverse, various other sources",
+    y = "Number of Pollutants",
+    x = NULL
+  ) +
+  theme(
+    plot.subtitle = element_text(size =  10)
+  ) +
+  guides(color = guide_legend(title = "Pollutant Type"))
+
+  
+p2 <- p +
+  labs(
+    title = "Quantity of Recyclable Pollutants Removed from all Trash Rivers",
+    subtitle = "CigaretteButts quantity adjusted 100:1",
+    caption = "Verticle lines represent major environmental movements
+    Sources:tidyverse, various other sources",
+    y = "Number of Pollutants",
+    x = NULL
+  ) +
+  theme(
+    plot.subtitle = element_text(size =  10)
+  ) +   
+  gghighlight(MaterialType == 'Recyclable') +
+  guides(color = guide_legend(title = "Pollutant Type"))
+
+p3 <- p +
+  labs(
+    title = "Quantity of Recyclable Pollutants Removed from all Trash Rivers",
+    subtitle = "CigaretteButts quantity adjusted 100:1",
+    caption = "Verticle lines represent major environmental movements
+    Sources:tidyverse, various other sources",
+    y = "Number of Pollutants",
+    x = NULL
+  ) +
+  theme(
+    plot.subtitle = element_text(size =  10)
+  ) +   
+  gghighlight(MaterialType == 'NonRecyclable') +
+  guides(color = guide_legend(title = "Pollutant Type"))
+ 
+p1
+#Sources:
+#Tidyverse
+#https://www.ipcc.ch/site/assets/uploads/2018/04/ipcc_ar5_leaflet.pdf
+#https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XXVII-7-d&chapter=27&clang=_en
+#https://www.euronews.com/green/2023/09/10/fridays-for-future-gretas-school-strikes-led-a-third-of-swiss-citizens-to-change-their-hab
+#https://www.nationalcleanupday.org/earth-day
+#https://apnews.com/article/joe-biden-executive-orders-b5b409da08e42414b9a12e2c67ee2df6
+#https://www.ipcc.ch/assessment-report/ar6/
+  
 ```
 
-## Plot and text
-
-::: columns
-::: {.column width="50%"}
--   Some text
-
--   goes here
-:::
-
-::: {.column width="50%"}
-```{r, warning=FALSE, fig.width=5.5}
-penguins |>
-  ggplot(aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot(linewidth = 0.75,
-               outlier.size = 2.5) +
-  theme_minimal(base_size = 15) +
-  theme(legend.key.size = unit(0.8, "cm"))
-```
-:::
-:::
-
-# A new section...
-
-## Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
+## Quantity of Recyclables and Non-Recyclables Removed From Rivers by TrashWheels
 ```{r}
-penguins |> 
-  head() |>
-  kableExtra::kable() |>
-  kableExtra::kable_styling()
+p2
+p3
 ```
 
-## Images
 
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
+## Environmental Movement's Impact on Recyclables versus Non-Recyclables
 
-## Math Expressions {.smaller}
+``` {r}
+#manipulate data
+trashwheel4 <- trashwheel3 |>
+  mutate(
+         FifthAssessmentStart = "2014-10-31", 
+         FifthAssessmentEnd = "2015-12-12",
+         ParisAgreementStart = "2015-12-12",
+         ParisAgreementEnd = "2018-04-01",
+         SchoolStrikeStart = "2018-04-01",
+         SchoolStrikeEnd = "2019-04-01",
+         FirstCleanUpDayStart = "2019-04-01",
+         FirstCleanUpDayEnd = "2021-01-01",
+         RejoinParisAccordStart = "2021-01-01",
+         RejoinParisAccordEnd = "2021-08-09",
+         SixthReportStart = "2021-08-09",
+         SixthReportEnd = "2023-05-16"
+         ) |>
+  mutate(movement = case_when(
+                              Date > FifthAssessmentStart & Date <= FifthAssessmentEnd ~ "IPCC Fifth Assessment Report",
+                              Date > ParisAgreementStart & Date <= ParisAgreementEnd ~ "Paris Agreement Signed",
+                              Date > SchoolStrikeStart & Date <= SchoolStrikeEnd ~ "Greta Thunberg starts school stike for climate",
+                              Date > FirstCleanUpDayStart & Date <= FirstCleanUpDayEnd ~ "First National CleanUp Day",
+                              Date > RejoinParisAccordStart & Date <= RejoinParisAccordEnd ~ "Biden Rejoins Paris Accord",
+                              Date > SixthReportStart & Date <= SixthReportEnd ~ "IPCC Sixth Assessment Report",
+                              TRUE ~ "FALSE"
+                              
+                              ),
+         YearsEncompassed = case_when(
+                              Date > FifthAssessmentStart & Date <= FifthAssessmentEnd ~ "1",
+                              Date > ParisAgreementStart & Date <= ParisAgreementEnd ~ "2",
+                              Date > SchoolStrikeStart & Date <= SchoolStrikeEnd ~ "1",
+                              Date > FirstCleanUpDayStart & Date <= FirstCleanUpDayEnd ~ "2",
+                              Date > RejoinParisAccordStart & Date <= RejoinParisAccordEnd ~ "1",
+                              Date > SixthReportStart & Date <= SixthReportEnd ~ "2",
+                              TRUE ~ "FALSE"
+                              
+                              )
+         ) |>
+  filter(movement != FALSE, MaterialType == c("NonRecyclable", "Recyclable"), !is.na(Quantity))
 
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
+#Group by and create quantities
 
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+trashwheel5 <- trashwheel4 |>
+  group_by(movement, MaterialType, YearsEncompassed) |>
+  summarise(TotalQuantity = sum(Quantity)) |>
+  ungroup() |>
+  mutate(QuantityPerYear = TotalQuantity/as.numeric(YearsEncompassed))
+
+trashwheel6 <- trashwheel5 |>
+  group_by(movement) |>
+  mutate(sum = sum(QuantityPerYear)) |>
+  ungroup() |>
+  mutate(Percentage = QuantityPerYear/sum) |>
+  mutate(Percentage = round(Percentage, 2))
+
+trashwheel6 |>
+  ggplot(aes(x = movement, y = Percentage, fill = MaterialType)) +
+  geom_bar(position = "fill", stat = "identity", color ='black', width = 0.9) +
+  geom_text(aes(label = paste0(Percentage*100, "%")),
+            position = position_stack(vjust = 0.5), size = 2) +
+  scale_x_discrete(guide = guide_axis(n.dodge = 3),
+                   limits = c("IPCC Fifth Assessment Report", "Paris Agreement Signed", "Greta Thunberg starts school stike for climate", "First National CleanUp Day", "Biden Rejoins Paris Accord", "IPCC Sixth Assessment Report")) +
+  theme(axis.text.x = element_text(size = 8),
+        plot.subtitle = element_text(size =  10),
+        plot.title = element_text(size =  12)
+        ) +
+  labs(
+    title = "Percentage of Recyclables Versus Nonrecyclables During Environmental Movements",
+    subtitle = "Grouped by most recent environmental movement\nOrdered by Movement Date",
+    caption = "Sources: Tidyverse, various other sources",
+    y = NULL,
+    x = "Environmenal Movements"
+  ) +
+  guides(fill = guide_legend(title = "Pollutant Type"))
+
+
+#learned n.dodge from https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2
+
 ```
 
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
 
-Limitations:
+## Insites Gained From the Visualizations
 
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+-Steady Trend of pollutants moving from recyclables to non-recyclables.
+  -Environmental Movements are at least helping create more recyclables.
+-Greta Thunberg's school strike movement helped lower quantities of pollutants in rivers
+-First National CleanUp Day seemed to actually negativly affect the quantity of recyclables versus non-recyclables.
